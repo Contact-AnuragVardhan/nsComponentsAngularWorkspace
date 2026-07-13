@@ -1,63 +1,56 @@
-# NsComponentsAngular
+# ns-components-angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
+Angular wrapper components for NSComponents.
 
-## Code scaffolding
+This library is published from the `projects/ns-components-angular` workspace project and exposes its public API from `src/public-api.ts`.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Install
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+If the package is published to npm, install it with:
 
 ```bash
-ng generate --help
+npm install ns-components-angular
 ```
 
-## Building
+## Use in Angular
 
-To build the library, run:
+Import the library module into your application module:
+
+```ts
+import { NSComponentsModule } from 'ns-components-angular';
+
+@NgModule({
+  imports: [NSComponentsModule]
+})
+export class AppModule {}
+```
+
+`NSComponentsModule` exports the library components and directive, including the textbox, navigation, multiselect dropdown, panel, calendar, date picker, dashboard, message box, grid, tab navigator, horizontal navigation, editor, numeric textbox, and table row mover directive.
+
+## Build
+
+Build the library from the workspace root:
 
 ```bash
 ng build ns-components-angular
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+The production build output is written to `dist/ns-components-angular`.
 
-### Publishing the Library
+## Library publish flow
 
-Once the project is built, you can publish your library by following these steps:
-
-1. Navigate to the `dist` directory:
-   ```bash
-   cd dist/ns-components-angular
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+After building, publish the package from the generated `dist/ns-components-angular` folder:
 
 ```bash
-ng test
+cd dist/ns-components-angular
+npm publish
 ```
 
-## Running end-to-end tests
+## Workspace-specific build scripts
 
-For end-to-end (e2e) testing, run:
+The root workspace also provides helper scripts for the additional generated assets used by this library:
 
-```bash
-ng e2e
-```
+- `npm run build:library-unix`
+- `npm run build:library-win`
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+These scripts build the library and copy the generated asset folder into the package output.
