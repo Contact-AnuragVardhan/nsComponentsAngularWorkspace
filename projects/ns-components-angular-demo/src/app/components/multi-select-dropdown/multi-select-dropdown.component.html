@@ -1,0 +1,65 @@
+<div class="container">
+    <h1>MultiSelect Dropdown</h1>
+
+    <!-- Simple Usage with Multiple Select -->
+    <h3>Simple Usage with Multiple Select:</h3>
+    <div style="display: flex; gap: 20px;">
+        <div style="width: 200px;">
+            <ns-multiselect-dropdown-angular #nsDropdownSimple [setting]="getMultiSelectSetting('simple')" [dataSource]="states"
+                [(ngModel)]="selectedStates" (onClose)="changeHandler($event, nsDropdownSimple)">
+            </ns-multiselect-dropdown-angular>
+        </div>
+        <button type="button" (click)="selectValue()">Select MICHIGAN and NEW JERSEY</button>
+    </div>
+
+    <!-- Multiple Select with Virtual List -->
+    <h3>Multiple Select with Virtual List:</h3>
+    <div style="width: 200px;">
+        <ns-multiselect-dropdown-angular #nsDropdownVirtual [dataSource]="virtualSource"
+            [setting]="getMultiSelectSetting('virtual')"
+            (onClose)="changeHandler($event, nsDropdownVirtual)">
+        </ns-multiselect-dropdown-angular>
+    </div>
+
+    <!-- Multiple Select Label as Horizontal List -->
+    <h3>Multiple Select Label as Horizontal List:</h3>
+    <div style="width: 400px;">
+        <ns-multiselect-dropdown-angular #nsDropdownHorizontal [dataSource]="horizontalSource"
+            [setting]="getMultiSelectSetting('horizontal')"
+            (onClose)="changeHandler($event, nsDropdownHorizontal)">
+        </ns-multiselect-dropdown-angular>
+    </div>
+
+    <!-- Multiple Select Label as Vertical List -->
+    <h3>Multiple Select Label as Vertical List:</h3>
+    <div style="width: 200px;">
+        <ns-multiselect-dropdown-angular #nsDropdownVertical [dataSource]="verticalSource"
+            [setting]="getMultiSelectSetting('vertical')"
+            (onClose)="changeHandler($event, nsDropdownVertical)">
+        </ns-multiselect-dropdown-angular>
+    </div>
+
+    <!-- Multiple Select with Max Items -->
+    <h3>Multiple Select with Max Items:</h3>
+    <div>
+        <label for="cmbStates">Choose Max States to be selected: </label>
+        <select id="cmbStates" [(ngModel)]="selectedMaxItems" (change)="handleMaxItemsChange($event)">
+            <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">{{ num }}</option>
+        </select>
+    </div>
+    <div style="width: 200px;">
+        <ns-multiselect-dropdown-angular #nsDropdownMaxItems [dataSource]="maxItemsSource"
+            [setting]="getMultiSelectSetting('customLabel')"
+            (onClose)="changeHandler($event, nsDropdownMaxItems)">
+        </ns-multiselect-dropdown-angular>
+    </div>
+
+    <!-- Multiple Select Demo with Position of List at Top and Custom Label -->
+    <h3>Multiple Select Demo with Position of List at Top and Custom Label:</h3>
+    <div style="width: 200px;">
+        <ns-multiselect-dropdown-angular #nsDropdownCustomLabel [dataSource]="customLabelSource"
+            [setting]="getMultiSelectSetting('customLabel')"
+            (onClose)="changeHandler($event, nsDropdownCustomLabel)">
+        </ns-multiselect-dropdown-angular>
+    </div>
+</div>

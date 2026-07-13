@@ -1,0 +1,33 @@
+<div class="box box-ns-red">
+    <div class="box-header">
+      <h3 class="box-title">Grouping Grid Demo</h3>
+      <div class="pull-right box-tools">
+        <select
+          id="cmbGroupBy"
+          class="select"
+          [ngModel]="groupBy"
+          (change)="handleGroupByChange($event)"
+        >
+          <option key="-1" value="-1">Select GroupBy</option>
+          <option *ngFor="let item of arrGroupBy" [value]="item.value">{{ item.name }}</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-secondary btn-sm" (click)="expandHandler()">
+          <i class="fa fa-expand"></i>&nbsp;&nbsp;&nbsp;Expand
+        </button>
+        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-secondary btn-sm" (click)="collapseHandler()">
+          <i class="fa fa-compress text-white"></i>&nbsp;&nbsp;&nbsp;Collapse
+        </button>
+        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+    <div class="box-body">
+      <ns-grid-angular
+        [setting]="gridSetting"
+        [dataSource]="dataSource"
+        style="width: 100%;"
+      ></ns-grid-angular>
+    </div>
+  </div>
+  

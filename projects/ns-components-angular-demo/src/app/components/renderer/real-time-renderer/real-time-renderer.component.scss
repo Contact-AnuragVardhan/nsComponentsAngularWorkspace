@@ -1,0 +1,29 @@
+.realTimeCell {
+  font-weight: bold;
+  text-align: center;
+}
+
+.realTimeCellDelta {
+  padding-right: 2px;
+}
+
+.realTimeCellDeltaUp {
+  color: #e53935;
+}
+
+.realTimeCellDeltaDown {
+  color: #43a047;
+}
+
+.realTimeCellValue {
+  background-color: transparent;
+  border-radius: 1px;
+  padding-left: 1px;
+  padding-right: 1px;
+  transition: background-color 1s;
+}
+
+.realTimeCellValueHighlight {
+  background-color: rgba(22, 160, 133, 0.5);
+  transition: background-color 0.1s;
+}

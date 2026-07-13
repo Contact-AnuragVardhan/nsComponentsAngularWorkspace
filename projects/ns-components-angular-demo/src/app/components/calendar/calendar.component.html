@@ -1,0 +1,39 @@
+<div class="box box-ns-red">
+    <div class="box-header">
+        <h3 class="box-title">Calendar Demo</h3>
+    </div>
+    <div class="box-body">
+        <div class="row" style="margin-left: 100px;">
+            <div style="display: inline-block; width: 50%;">
+                <p>Basic Calendar</p>
+                <ns-calendar-angular #calSimple
+                    (dateSelected)="dateSelected('simple', 'divSimpleCalSelectedDate', $event)">
+                </ns-calendar-angular>
+                <div id="divSimpleCalSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+            <div style="display: inline-block; width: 50%;">
+                <p>Calendar with Min and Max date</p>
+                <ns-calendar-angular #calMinMax
+                    (dateSelected)="dateSelected('minmax', 'divCalMinMaxSelectedDate', $event)">
+                </ns-calendar-angular>
+                <div id="divCalMinMaxSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+        </div>
+        <div class="row" style="margin-left: 100px;">
+            <div style="display: inline-block; width: 50%;">
+                <p>Calendar with Disabled Date (date less than today is disabled)</p>
+                <ns-calendar-angular #calDisabled
+                    (dateSelected)="dateSelected('disabled', 'divCalDisabledSelectedDate', $event)">
+                </ns-calendar-angular>
+                <div id="divCalDisabledSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+            <div style="display: inline-block; width: 50%;">
+                <p>Calendar With Footer</p>
+                <ns-calendar-angular #calFooter
+                    (dateSelected)="dateSelected('footer', 'divFooterCalSelectedDate', $event)">
+                </ns-calendar-angular>
+                <div id="divFooterCalSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
