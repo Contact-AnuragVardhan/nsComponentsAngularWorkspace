@@ -3,7 +3,6 @@ import { Component, ViewEncapsulation, OnChanges, OnInit, AfterViewInit, Input, 
 import { NSBaseComponent } from "../ns-base";
 import { GridComponentRef, INSGridCascadeFunction, INSGridColumn, INSGridDetailRendererComponent, INSGridDetailRendererComponentInstance, INSGridDetailRendererComponentParam, INSGridEditorCustomComponentInstance, INSGridEditorCustomComponentSetting, INSGridExtraRowHeaderRendererComponentInstance, INSGridGroupRendererComponentInstance, INSGridHeaderRendererComponentInstance, INSGridMasterDetailSetting, INSGridRendererComponentInstance, INSGridSetting, INSGridToolTipRendererComponentInstance } from "./interfaces";
 import { NSDynamicComponentService } from "../../services";
-import { AnyCatcher } from "rxjs/internal/AnyCatcher";
 
 declare var NSGrid: any;
 

@@ -1,24 +1,19 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
   "newProjectRoot": "projects",
   "projects": {
     "ns-components-angular": {
       "projectType": "library",
-      "schematics":{
-        "@schematics/angular:component": {
-          "standalone": false
-        }
-      },
       "root": "projects/ns-components-angular",
       "sourceRoot": "projects/ns-components-angular/src",
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ns-components-angular/ng-package.json"
-          },
+          "builder": "@angular/build:ng-packagr",
           "configurations": {
             "production": {
               "tsConfig": "projects/ns-components-angular/tsconfig.lib.prod.json"
@@ -30,33 +25,52 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
-            "tsConfig": "projects/ns-components-angular/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "tsConfig": "projects/ns-components-angular/tsconfig.spec.json"
           }
         }
       }
     },
     "ns-components-angular-demo": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "type": "component",
+          "addTypeToClassName": false
+        },
+        "@schematics/angular:directive": {
+          "type": "directive",
+          "addTypeToClassName": false
+        },
+        "@schematics/angular:service": {
+          "type": "service",
+          "addTypeToClassName": false
+        },
+        "@schematics/angular:guard": {
+          "typeSeparator": "."
+        },
+        "@schematics/angular:interceptor": {
+          "typeSeparator": "."
+        },
+        "@schematics/angular:module": {
+          "typeSeparator": "."
+        },
+        "@schematics/angular:pipe": {
+          "typeSeparator": "."
+        },
+        "@schematics/angular:resolver": {
+          "typeSeparator": "."
+        }
+      },
       "root": "projects/ns-components-angular-demo",
       "sourceRoot": "projects/ns-components-angular-demo/src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/ns-components-angular-demo",
-            "index": "projects/ns-components-angular-demo/src/index.html",
             "browser": "projects/ns-components-angular-demo/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
             "tsConfig": "projects/ns-components-angular-demo/tsconfig.app.json",
             "assets": [
               {
@@ -64,15 +78,7 @@
                 "input": "projects/ns-components-angular-demo/public"
               }
             ],
-            "styles": [
-              "projects/ns-components-angular-demo/src/external/css/nmComponent.css",
-              "projects/ns-components-angular-demo/src/external/css/nmComponentBlack.css",
-              "projects/ns-components-angular-demo/src/external/css/nmComponentWhite.css",
-              "projects/ns-components-angular-demo/src/external/css/app.css",
-              "bootstrap/dist/css/bootstrap.css",
-              "font-awesome/css/font-awesome.css"
-            ],
-            "scripts": []
+            "styles": ["projects/ns-components-angular-demo/src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -99,7 +105,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "ns-components-angular-demo:build:production"
@@ -110,27 +116,10 @@
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
-        },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "projects/ns-components-angular-demo/tsconfig.spec.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/ns-components-angular-demo/public"
-              }
-            ],
-            "styles": [
-              "projects/ns-components-angular-demo/src/styles.css"
-            ],
-            "scripts": []
+            "runner": "karma"
           }
         }
       }

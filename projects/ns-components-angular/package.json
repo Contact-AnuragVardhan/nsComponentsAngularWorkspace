@@ -1,6 +1,6 @@
 {
   "name": "ns-components-angular",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Angular Wrapper Components for NSComponents",
   "repository": {
     "type": "git",
@@ -10,7 +10,6 @@
   "bugs": {
     "url": "https://github.com/nscomponents/nscomponentsangular/issues"
   },
-  "sideEffects": false,
   "keywords": [
     "Angular",
     "Component",
@@ -25,10 +24,11 @@
   "author": "NSComponents",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0"
+    "@angular/common": "^22.1.0",
+    "@angular/core": "^22.1.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "sideEffects": false
 }

@@ -3,30 +3,38 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
-    "paths": {
-      "ns-components-angular": [
-        "./dist/ns-components-angular"
-      ]
-    },
-    "moduleResolution": "bundler",
     "importHelpers": true,
+    "paths": {
+      "ns-components-angular": ["./dist/ns-components-angular"]
+    },
     "target": "ES2022",
-    "module": "ES2022"
+    "module": "preserve"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  }
+    "strictInputAccessModifiers": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ns-components-angular/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ns-components-angular/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ns-components-angular-demo/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/ns-components-angular-demo/tsconfig.spec.json"
+    }
+  ]
 }

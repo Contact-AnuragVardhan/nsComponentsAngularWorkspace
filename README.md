@@ -1,56 +1,59 @@
-# NsComponentsAngularWorkspace
+# NsComponentsAngularWorkspace22
 
-Angular 19 workspace for the NSComponents UI library and its demo application.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
 
-## Projects
+## Development server
 
-- `projects/ns-components-angular` - reusable Angular library for NSComponents wrappers
-- `projects/ns-components-angular-demo` - demo application that exercises the library
-
-## Install
+To start a local development server, run:
 
 ```bash
-npm install
+ng serve
 ```
 
-## Run the demo app
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
 ```bash
-npm start
+ng generate component component-name
 ```
 
-The app is served with Angular CLI on `http://localhost:4200/`.
-
-## Build
-
-Build the demo application explicitly:
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
 ```bash
-ng build ns-components-angular-demo
+ng generate --help
 ```
 
-Build the library on Unix-like shells:
+## Building
+
+To build the project run:
 
 ```bash
-npm run build:library-unix
+ng build
 ```
 
-Build the library on Windows:
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
 ```bash
-npm run build:library-win
+ng test
 ```
 
-The library build compiles `ns-components-angular`, then copies generated assets into `dist/ns-components-angular`.
+## Running end-to-end tests
 
-## Test
+For end-to-end (e2e) testing, run:
 
 ```bash
-npm test
+ng e2e
 ```
 
-## Notes
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-- The library source lives under `projects/ns-components-angular/src`
-- The public entry point is `projects/ns-components-angular/src/public-api.ts`
-- The demo app consumes the library from the same workspace during development
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

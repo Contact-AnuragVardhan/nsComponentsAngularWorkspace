@@ -6,17 +6,8 @@
     "outDir": "../../out-tsc/lib",
     "declaration": true,
     "declarationMap": true,
-    "inlineSources": true,
-    "types": [],
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "types": []
   },
-  "exclude": [
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "src/**/*.ts",
-    "src/typings.d.ts"
-  ],
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/*.spec.ts"]
 }
