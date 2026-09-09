@@ -220,6 +220,10 @@ export class NSMessageBoxAngular extends NSBaseComponent<typeof NSMessageBox> im
             this.objNSComp.removeModal();
         }
         this.__objNSPanel = null;
+
+        this.__objCustomComponent = null;
+        this.__bodyComponentInstance = null;
+        this.__objNSPanel = null;
     };
 
     changeButtonStyle(btnIdentifier: any, objStyle: any): void {
