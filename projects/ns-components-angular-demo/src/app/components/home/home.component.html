@@ -1,0 +1,32 @@
+<div class="box box-ns-red">
+    <div class="box-header">
+        <h3 class="box-title">Home</h3>
+    </div>
+    <div class="box-body">
+        <p>
+            <b>NSComponent</b> allows you to build cross-platform, cross-browser web and mobile apps faster.
+            It is a set of ready-to-use HTML5 components written in pure Javascript with no dependencies on other
+            libraries.
+            These Components can be easily combined into a single application interface of any complexity.
+            Each Component can be easily customized via CSS and Configurations.<br />
+            The NSComponent components are compatible with popular JavaScript frameworks such as React, Angular.
+            The Components have React and Angular wrapper so that it can be used in both React and Angular Projects.
+            <br /><br />
+            Some of the Components are:
+        </p>
+        <ul [ngStyle]="styleOl">
+            <li *ngFor="let item of arrComp">
+                <span [ngStyle]="styleSpan">{{ item.label }}</span>
+            </li>
+        </ul>
+        <br />
+        Some of the Utilities developed as part of NSComponent are:
+        <ul [ngStyle]="styleOl">
+            <li *ngFor="let item of arrUtilities">
+                <span [ngStyle]="styleSpan">{{ item.label }}</span>
+            </li>
+        </ul>
+        <br />
+        Please view the Components in Action by clicking on the demos on <b>Navigation Bar</b>.
+    </div>
+</div>

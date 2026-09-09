@@ -1,0 +1,67 @@
+<div class="box box-ns-red">
+    <div class="box-header">
+        <h3 class="box-title">DatePicker Demo</h3>
+    </div>
+    <div class="box-body">
+        <div class="row" style="display: flex; flex-direction: row; flex-wrap: wrap; padding-left: 50px; padding-top: 50px;">
+            <div [ngStyle]="cellStyle">
+                <p>Basic Date Picker</p>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="display: flex; flex-direction: row; gap: 20px;">
+                        <ns-date-picker-angular #calSimple [setting]="setting" [(ngModel)]="selectedDate"
+                            (dateSelected)="dateSelected('simple', 'divSimpleCalSelectedDate', $event)">
+                        </ns-date-picker-angular>
+                        <button type="button" (click)="selectValue()">Select Today's Date</button>
+                    </div>
+                    <div id="divSimpleCalSelectedDate" style="height: 60px;">&nbsp;</div>
+                </div>
+            </div>
+            <div [ngStyle]="cellStyle">
+                <p>Date Picker with Min Max date (minDate = "01/01/2021" and maxDate = Today's date)</p>
+                <ns-date-picker-angular #calMinMax [setting]="minMaxSetting"
+                    (dateSelected)="dateSelected('minmax', 'divCalMinMaxSelectedDate', $event)"></ns-date-picker-angular>
+                <div id="divCalMinMaxSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+            <div [ngStyle]="cellStyle">
+                <p>Calendar with Disabled Date (date less than today is disabled)</p>
+                <ns-date-picker-angular #calDisabled [setting]="disabledSetting"
+                    (dateSelected)="dateSelected('disabled', 'divCalDisabledSelectedDate', $event)">
+                </ns-date-picker-angular>
+                <div id="divCalDisabledSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+            <div [ngStyle]="cellStyle">
+                <p>Date Picker with Disabled Textbox</p>
+                <ns-date-picker-angular #calDisabledTextBox [setting]="disabledTextBoxSetting"
+                    (dateSelected)="dateSelected('disabledtextbox', 'divDisabledTextBoxSelectedDate', $event)">
+                </ns-date-picker-angular>
+                <div id="divDisabledTextBoxSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+            <div [ngStyle]="cellStyle">
+                <p>Date Picker with Custom Button</p>
+                <ns-date-picker-angular #calCustomButton [setting]="customButtonSetting"
+                    (dateSelected)="dateSelected('custombutton', 'divCustomButtonSelectedDate', $event)">
+                </ns-date-picker-angular>
+                <div id="divCustomButtonSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+            <div [ngStyle]="cellStyle">
+                <p>Calendar With Footer</p>
+                <ns-date-picker-angular #calFooter [setting]="settingFooter"
+                    (dateSelected)="dateSelected('footer', 'divFooterCalSelectedDate', $event)"></ns-date-picker-angular>
+                <div id="divFooterCalSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+            <div [ngStyle]="cellStyle">
+                <p>Date Picker With Footer and Timezone</p>
+                <ns-date-picker-angular #calFooterTimeZone [setting]="timezoneSetting"
+                    (dateSelected)="dateSelected('footertimezone', 'divFooterCalTimezoneSelectedDate', $event)">
+                </ns-date-picker-angular>
+                <div id="divFooterCalTimezoneSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+            <div [ngStyle]="cellStyle">
+                <p>Date Picker With Model and Model Change</p>
+                <ns-date-picker-angular #calModel [setting]="timezoneModel" [(ngModel)]="modelDate" (ngModelChange)="modelChange($event)">
+                </ns-date-picker-angular>
+                <div id="divModelSelectedDate" style="height: 60px;">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>

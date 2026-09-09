@@ -1,0 +1,31 @@
+<ng-container *ngIf="globalContext.isLoggedIn && !globalContext.isAuthorized">
+    <div class="box box-danger box-border screen-center-box">
+        <div class="box-header with-border">
+            <i class="fa fa-ban text-ns-red"></i>
+            <h3 class="box-title">Unauthorized</h3>
+        </div>
+        <div class="box-body">
+            You are not authorized to access this application.
+        </div>
+    </div>
+</ng-container>
+<ns-navigation-angular 
+            style="margin-top: 50px; width: 250px;"
+            [setting]="navSetting"
+            [dataSource]="dataSource"
+            (navigationOpenStart)="handleNavigationEvent($event, 'navigationOpenStart')"
+            (navigationCloseStart)="handleNavigationEvent($event, 'navigationCloseStart')"
+            (navigationMenuSelected)="handleNavigationEvent($event, 'navigationMenuSelected')">
+</ns-navigation-angular>
+
+<ng-container *ngIf="globalContext.isLoggedIn && globalContext.isAuthorized">
+    <div id="divContent" class="nmPageContent" #divContentRef style="margin: 5px;">
+        <router-outlet />
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!globalContext.isLoggedIn">
+    <div class="loader">
+        
+    </div>
+</ng-container>

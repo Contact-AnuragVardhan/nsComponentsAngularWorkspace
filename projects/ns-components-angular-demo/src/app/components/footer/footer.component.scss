@@ -1,0 +1,13 @@
+.nmPageFooter .server-info {
+    font-weight: 600;
+    font-size: 11px;
+    font-style: italic;
+  }
+  
+  .nmPageFooter .server-info .server-info-desc {
+    display: none;
+  }
+  
+  .nmPageFooter .server-info:hover .server-info-desc {
+    display: inline;
+  }

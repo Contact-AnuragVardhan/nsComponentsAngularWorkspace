@@ -1,0 +1,24 @@
+<header class="nmPageHeader" style="width: 100%;">
+    <a class="nmLogo">
+        <span class="nmLogoTextMini"><b>NS</b></span>
+        <span class="nmLogoText"><b>NSComponent</b></span>
+    </a>
+    <nav class="nmPageHeaderContent" role="navigation">
+        <div class="nmHeaderRight">
+            <div class="nmAppName">
+                <h1>Welcome to NSCOMPONENT</h1>
+            </div>
+            <div class="nmAppDetail">
+                <div style="display: inline-block;">
+                    <select id="cmbTheme" class="select" [(ngModel)]="selectedTheme"
+                        (change)="handleThemeChange($event)">
+                        <option *ngFor="let item of arrTheme" [value]="item.value">{{ item.name }}</option>
+                    </select>
+                </div>
+                <div class="welcomeMessage">
+                    Select Theme:&nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
