@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { INSGridColumn, INSTextBoxAngularSetting, NSComponentsModule, NSTextBoxAngular } from 'ns-components-angular';
 import { fetchCountriesWithText } from '../../util/countryApi';
 import { CommonModule } from '@angular/common';
@@ -20,6 +20,10 @@ export class TextboxDemoComponent {
   private readonly SEARCH_FIELD = ['name', 'code'];
 
   dataSource: any[] = [];
+
+  constructor(private cdr: ChangeDetectorRef) {
+
+  }
 
   ngOnInit(): void {
     this.setTextBoxSetting();
@@ -79,6 +83,7 @@ export class TextboxDemoComponent {
         this.textBoxRef.dataSource = data;
       }*/
      this.dataSource = data;
+     this.cdr.detectChanges();
     }).catch(err => console.log(err));
   }
 

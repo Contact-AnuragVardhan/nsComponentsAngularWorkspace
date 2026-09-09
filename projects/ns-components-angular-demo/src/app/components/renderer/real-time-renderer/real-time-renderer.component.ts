@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-real-time-renderer',
@@ -16,6 +16,10 @@ export class RealTimeRendererComponent implements OnInit {
   deltaUp: boolean = true; // Direction of the delta
   lastValue: number = 0; // Last value for comparison
   refreshCount: number = 0; // Refresh counter for delta removal
+
+  constructor(private cdr: ChangeDetectorRef) {
+
+  }
 
   ngOnInit(): void {
     
@@ -38,6 +42,8 @@ export class RealTimeRendererComponent implements OnInit {
       this.deltaUp = (deltaChange || 0) >= 0;
 
       this.removeDelta();
+
+      this.cdr.detectChanges();
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-proficiency-renderer',
@@ -15,6 +15,10 @@ export class ProficiencyRendererComponent implements OnInit {
   item: any = {}; // Data for the renderer
   value: number = 0; // Proficiency value
   color: string = ''; // Background color for the proficiency bar
+
+  constructor(private cdr: ChangeDetectorRef) {
+
+  }
 
   ngOnInit(): void {
 
@@ -35,6 +39,8 @@ export class ProficiencyRendererComponent implements OnInit {
 
     this.value = proficiencyValue;
     this.color = color;
+
+    this.cdr.detectChanges();
   }
 
   // Method to get the DOM element

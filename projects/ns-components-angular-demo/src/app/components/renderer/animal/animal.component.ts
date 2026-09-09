@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Subject, fromEvent, debounceTime, takeUntil } from 'rxjs';
 import { SharedModule } from '../../../modules/shared.module';
 import { objImg } from '../../../util/images';
@@ -22,7 +22,9 @@ export class AnimalComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {
+
+  }
 
   ngOnInit(): void {
     if (this.data) {
@@ -47,6 +49,8 @@ export class AnimalComponent implements OnInit, OnDestroy {
     this.url = objImg[data.name]?.url || null;
     this.value = data.name;
     this.width = this.getWidth();
+
+    this.cdr.detectChanges();
   }
 
   public getElement(): HTMLElement | null {

@@ -28,6 +28,7 @@ export class RealTimeUpdatesComponent implements OnInit {
   private initializeGrid(): void {
     const customClass: INSGridCustomClassSetting = {
       headerCell: 'columnClass',
+      firstBodyColumn: 'center-children',
       nonFirstBodyColumn: 'columnClass',
     };
 

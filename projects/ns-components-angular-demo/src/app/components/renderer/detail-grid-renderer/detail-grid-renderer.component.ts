@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NSGridAngular, INSGridAngularSetting, INSGridColumn, INSGridDetailRendererComponentParam } from 'ns-components-angular';
 import { SharedModule } from '../../../modules/shared.module';
 
@@ -28,6 +28,10 @@ export class DetailGridRendererComponent implements OnInit {
   gridSetting: INSGridAngularSetting | null = null;
   dataSource: any[] = [];
   data: any = { id: -1, country: "", hierarchy: "" };
+
+  constructor(private cdr: ChangeDetectorRef) {
+
+  }
 
   ngOnInit(): void {
     this.initializeGrid();
@@ -89,6 +93,8 @@ export class DetailGridRendererComponent implements OnInit {
     console.log("elementAdded");
     const source: ISourceItem[] = this.generateSource(this.data);
     this.dataSource = source;
+
+    this.cdr.detectChanges();
   }
 
   renderEverytime(rowIndex: number): boolean {

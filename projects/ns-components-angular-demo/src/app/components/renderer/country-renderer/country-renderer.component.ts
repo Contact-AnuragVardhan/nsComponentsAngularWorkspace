@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-country-renderer',
@@ -16,6 +16,10 @@ export class CountryRendererComponent implements OnInit {
   value: string = ''; // Display value
   url: string = ''; // URL for the country flag
 
+  constructor(private cdr: ChangeDetectorRef) {
+
+  }
+
   ngOnInit(): void {
 
   }
@@ -25,6 +29,8 @@ export class CountryRendererComponent implements OnInit {
     this.data = data;
     this.url = url;
     this.value = data[dataField];
+
+    this.cdr.detectChanges();
   }
 
   getElement(): HTMLElement {

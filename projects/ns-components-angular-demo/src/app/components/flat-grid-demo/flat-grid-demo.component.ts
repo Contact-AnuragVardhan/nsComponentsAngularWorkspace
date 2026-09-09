@@ -104,7 +104,7 @@ export class FlatGridDemoComponent implements OnInit {
 
   editItemRenderer(item: any, dataField: string, rowIndex: number, columnIndex: number, row: any): HTMLElement {
     const span = document.createElement('span');
-
+    span.classList.add("center-children");
     if (item) {
       if (typeof item.isEdit === 'undefined' || !item.isEdit) {
         const editIcon = document.createElement('i');

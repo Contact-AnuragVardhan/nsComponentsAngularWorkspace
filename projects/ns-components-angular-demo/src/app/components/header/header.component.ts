@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../modules/shared.module';
 
@@ -17,7 +17,7 @@ export class HeaderComponent {
     { value: 'Black', name: 'Black' }
   ];
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     // Initialize or dispatch any necessary events
@@ -29,6 +29,7 @@ export class HeaderComponent {
     if (newTheme && newTheme !== '-1') {
       console.log(`Theme changed to ${newTheme}`);
       this.selectedTheme = newTheme;
+      this.cdr.detectChanges();
     }
   }
 }
